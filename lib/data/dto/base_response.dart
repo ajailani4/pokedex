@@ -2,7 +2,7 @@ class BaseResponse<T> {
   final int count;
   final String next;
   final String? previous;
-  final List<T> results;
+  final T results;
 
   const BaseResponse({
     required this.count,
@@ -11,12 +11,15 @@ class BaseResponse<T> {
     required this.results
   });
 
-  factory BaseResponse.fromJson(Map<String, dynamic> json) {
+  factory BaseResponse.fromJson(
+    Map<String, dynamic> json,
+    T Function(Object? json) fromJsonT
+  ) {
     return BaseResponse(
       count: json['count'],
       next: json['next'],
       previous: json['previous'],
-      results: json['results']
+      results: fromJsonT(json['results'])
     );
   }
 }

@@ -3,11 +3,12 @@ import 'package:pokedex/domain/repository/pokemon_repository.dart';
 import '../../di/injector.dart';
 
 class GetPokemonListUseCase {
-  final PokemonRepository pokemonRepository;
+  final PokemonRepository _pokemonRepository;
 
-  GetPokemonListUseCase({required this.pokemonRepository});
+  GetPokemonListUseCase({required PokemonRepository pokemonRepository}) 
+    : _pokemonRepository = pokemonRepository;
   
   call() {
-    return pokemonRepository.getPokemonList();
+    return _pokemonRepository.getPokemonList();
   }
 }

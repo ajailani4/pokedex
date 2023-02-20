@@ -12,7 +12,7 @@ class PokemonItemDto {
   factory PokemonItemDto.fromJson(Map<String, dynamic> json) {
     return PokemonItemDto(
       url: json['url'],
-      name: json['url'],
+      name: json['name'],
       image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${json['url'].split('/')[6]}.png'
     );
   }
