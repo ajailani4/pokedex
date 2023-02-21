@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pokedex/domain/model/pokemon_item.dart';
 import 'package:pokedex/presentation/feature/home/controller/home_bloc.dart';
 import 'package:pokedex/presentation/feature/home/controller/home_event.dart';
 import 'package:pokedex/presentation/feature/home/controller/home_state.dart';
+
+import 'component/pokemon_item_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -55,27 +58,10 @@ class HomeScreen extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 12.0),
                           physics: const NeverScrollableScrollPhysics(),
                           itemBuilder: (_, index) {
-                            return Card(
-                              margin: const EdgeInsets.all(8.0),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Column(
-                                  children: [
-                                    Image.network(
-                                      pokemonList[index].image,
-                                      width: double.infinity,
-                                      height: 150.0
-                                    ),
-                                    const SizedBox(height: 15.0),
-                                    Text(
-                                      pokemonList[index].name,
-                                      style: theme.textTheme.bodyLarge!.copyWith(
-                                        fontWeight: FontWeight.bold
-                                      )
-                                    )
-                                  ]
-                                )
-                              )
+                            return PokemonItemCard(
+                              index: index,
+                              pokemonList: pokemonList,
+                              theme: theme
                             );
                           }
                         );
