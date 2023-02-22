@@ -1,7 +1,7 @@
-import 'package:pokedex/domain/model/type_name.dart';
+import 'name.dart';
 
 class Type {
-  final TypeName typeName;
+  final Name typeName;
 
   const Type({required this.typeName});
 }

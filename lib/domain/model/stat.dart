@@ -1,8 +1,8 @@
-import 'package:pokedex/domain/model/stat_name.dart';
+import 'name.dart';
 
 class Stat {
   final int baseStat;
-  final StatName statName;
+  final Name statName;
 
   const Stat({
     required this.baseStat,

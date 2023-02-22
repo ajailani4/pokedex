@@ -1,7 +1,7 @@
-import 'package:pokedex/domain/model/ability_name.dart';
+import 'package:pokedex/domain/model/name.dart';
 
 class Ability {
-  final AbilityName abilityName;
+  final Name abilityName;
 
   const Ability({required this.abilityName});
 }
