@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
+                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                   child: Text(
                     'Pokedex',
                     style: theme.textTheme.headlineSmall!.copyWith(
@@ -38,7 +38,7 @@ class HomeScreen extends StatelessWidget {
                     )
                   ),
                 ),
-                const SizedBox(height: 20.0),
+                const SizedBox(height: 20),
                 BlocBuilder<HomeBloc, HomeState>(
                   builder: (_, state) {
                     if (state.loading == true) {
@@ -57,7 +57,7 @@ class HomeScreen extends StatelessWidget {
                             childAspectRatio: 0.8,
                           ),
                           shrinkWrap: true,
-                          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
                           physics: const NeverScrollableScrollPhysics(),
                           itemBuilder: (_, index) {
                             return PokemonItemCard(
