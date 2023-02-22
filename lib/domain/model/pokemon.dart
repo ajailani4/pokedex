@@ -10,8 +10,8 @@ class Pokemon {
   final String image;
   final List<Type> types;
   final Name species;
-  final int height;
-  final int weight;
+  final double height;
+  final double weight;
   final List<Ability> abilities;
   final List<Stat> stats;
 

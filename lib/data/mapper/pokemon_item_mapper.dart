@@ -8,7 +8,7 @@ class PokemonItemMapper {
 
   PokemonItem mapToModel(PokemonItemDto pokemonItemDto) {
     return PokemonItem(
-      id: pokemonItemDto.url.split('/')[6],
+      id: int.parse(pokemonItemDto.url.split('/')[6]),
       name: pokemonItemDto.name[0].toUpperCase() + pokemonItemDto.name.substring(1).toLowerCase(),
       image: pokemonItemDto.image
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/presentation/feature/home/controller/home_bloc.dart';
 import 'package:pokedex/presentation/feature/home/controller/home_state.dart';
+import 'package:pokedex/presentation/feature/pokemon_detail/pokemon_detail_screen.dart';
 
 import 'component/pokemon_item_card.dart';
 
@@ -41,7 +42,10 @@ class HomeScreen extends StatelessWidget {
                 BlocBuilder<HomeBloc, HomeState>(
                   builder: (_, state) {
                     if (state.loading == true) {
-                      return const Center(child: CircularProgressIndicator());
+                      return const Center(
+                        heightFactor: 15,
+                        child: CircularProgressIndicator()
+                      );
                     } else {
                       final pokemonList = state.pokemonList;
 
@@ -57,8 +61,18 @@ class HomeScreen extends StatelessWidget {
                           physics: const NeverScrollableScrollPhysics(),
                           itemBuilder: (_, index) {
                             return PokemonItemCard(
-                              index: index,
-                              pokemonList: pokemonList
+                              pokemonItem: pokemonList[index],
+                              onClick: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => const PokemonDetailScreen(),
+                                    settings: RouteSettings(
+                                      arguments: pokemonList[index].id
+                                    )
+                                  )
+                                );
+                              },
                             );
                           }
                         );

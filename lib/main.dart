@@ -3,6 +3,7 @@ import 'package:pokedex/presentation/feature/home/controller/home_bloc.dart';
 import 'package:pokedex/presentation/feature/home/controller/home_event.dart';
 import 'package:pokedex/presentation/feature/home/home_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pokedex/presentation/feature/pokemon_detail/controller/pokemon_detail_bloc.dart';
 import 'package:pokedex/presentation/feature/pokemon_detail/pokemon_detail_screen.dart';
 
 import 'di/injector.dart';
@@ -21,6 +22,10 @@ class MainApp extends StatelessWidget {
         BlocProvider<HomeBloc>(
           create: (_) => 
             HomeBloc(getPokemonListUseCase: Injector.instance.getPokemonListUseCase)..add(GetPokemonList())
+        ),
+        BlocProvider<PokemonDetailBloc>(
+          create: (_) =>
+            PokemonDetailBloc(getPokemonDetailUseCase: Injector.instance.getPokemonDetailUseCase)
         )
       ],
       child: MaterialApp(
@@ -28,7 +33,7 @@ class MainApp extends StatelessWidget {
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue)
         ),
-        home: const PokemonDetailScreen()
+        home: const HomeScreen()
       ),
     );
   }

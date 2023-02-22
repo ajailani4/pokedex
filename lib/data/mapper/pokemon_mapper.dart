@@ -17,8 +17,8 @@ class PokemonMapper {
       image: pokemonDto.image,
       types: pokemonDto.typesDto.map((e) =>  TypeMapper.instance.mapToModel(e)).toList(),
       species: NameMapper.instance.mapToModel(pokemonDto.species),
-      height: pokemonDto.height,
-      weight: pokemonDto.weight,
+      height: pokemonDto.height * 10,
+      weight: pokemonDto.weight / 10,
       abilities: pokemonDto.abilitiesDto.map((e) => AbilityMapper.instance.mapToModel(e)).toList(),
       stats: pokemonDto.statsDto.map((e) => StatMapper.instance.mapToModel(e)).toList()
     );

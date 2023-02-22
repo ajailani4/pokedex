@@ -1,11 +1,12 @@
+import 'package:equatable/equatable.dart';
 import 'package:pokedex/domain/model/pokemon_item.dart';
 
-class HomeState {
+class HomeState extends Equatable {
   final bool? loading;
   final List<PokemonItem>? pokemonList;
   final bool? error;
 
-  HomeState({
+  const HomeState({
     this.loading,
     this.pokemonList,
     this.error
