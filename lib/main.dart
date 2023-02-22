@@ -3,6 +3,7 @@ import 'package:pokedex/presentation/feature/home/controller/home_bloc.dart';
 import 'package:pokedex/presentation/feature/home/controller/home_event.dart';
 import 'package:pokedex/presentation/feature/home/home_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pokedex/presentation/feature/pokemon_detail/pokemon_detail_screen.dart';
 
 import 'di/injector.dart';
 
@@ -27,7 +28,7 @@ class MainApp extends StatelessWidget {
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue)
         ),
-        home: const HomeScreen()
+        home: const PokemonDetailScreen()
       ),
     );
   }

@@ -6,16 +6,16 @@ class PokemonItemCard extends StatelessWidget {
   const PokemonItemCard({
     super.key,
     required this.index,
-    required this.pokemonList,
-    required this.theme,
+    required this.pokemonList
   });
 
   final int index;
   final List<PokemonItem>? pokemonList;
-  final ThemeData theme;
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    
     return Card(
       margin: const EdgeInsets.all(8.0),
       child: Padding(

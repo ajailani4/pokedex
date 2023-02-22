@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/domain/model/pokemon_item.dart';
 import 'package:pokedex/presentation/feature/home/controller/home_bloc.dart';
-import 'package:pokedex/presentation/feature/home/controller/home_event.dart';
 import 'package:pokedex/presentation/feature/home/controller/home_state.dart';
 
 import 'component/pokemon_item_card.dart';
@@ -60,8 +58,7 @@ class HomeScreen extends StatelessWidget {
                           itemBuilder: (_, index) {
                             return PokemonItemCard(
                               index: index,
-                              pokemonList: pokemonList,
-                              theme: theme
+                              pokemonList: pokemonList
                             );
                           }
                         );
